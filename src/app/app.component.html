@@ -1,0 +1,229 @@
+<!-- <div *ngFor= "let country of countries; let i = index">
+   {{country}}+{{i}}
+  <br/>
+</div>  
+<form (ngSubmit)="onSubmit()">
+
+  <select multiple formControlName="cityName">
+     <option value="">Choose your city</option>
+     <option *ngFor="let country of countries; let i = index" [ngValue]="i" (change)="changeCity($event)">{{city}}
+     </option>
+  </select> -->
+
+<!-- 
+<form id="newsForm" name="form" (ngSubmit)="getNews()" >
+  <div class="form container">
+    <div class="title">
+      News Reader
+    </div>
+    <div class="content">
+      <div class="row form-row">
+        
+      </div>
+    </div> 
+    <input type="submit">Submit
+  </div>
+</form>
+ -->
+<!-- 
+<mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+  <mat-grid-tile
+      *ngFor="let article of articles">
+  <mat-card style="max-width: 800px;">
+   <mat-card-header>
+     <mat-card-title>
+       <a  id="title" [href]="article.url" target="_blank">{{article.title}}</a>
+     </mat-card-title>
+   <br/>
+     <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
+   </mat-card-header>
+   <a mat-button [href]="article.url" target="_blank">
+    <img mat-card-image [src]="article.urlToImage" alt="Source Image"></a>
+   <mat-card-content>
+      {{article.description}}
+   </mat-card-content>
+   <mat-card-content>
+      {{article.content}}
+   </mat-card-content>
+   <mat-card-actions>
+     <button mat-button>LIKE</button>
+     <button mat-button>SHARE</button>
+   </mat-card-actions>
+ </mat-card>   
+  </mat-grid-tile>
+</mat-grid-list>   -->
+
+<!-- <div>
+<mat-form-field appearance="fill">
+  <mat-label>Select me</mat-label>
+  <mat-select>
+    <mat-option value="option">Option</mat-option>
+  </mat-select>
+  
+</mat-form-field>
+</div> -->
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <!-- NEWS READER APPLICATION -->
+    </mat-panel-title>
+    <mat-panel-description>
+      Click to change Country and Category of News
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+ <mat-form-field>
+  <mat-label>Country</mat-label>
+    <mat-select [(value)]="countryCode" required [formControl]="countryControl">
+    <mat-option *ngFor="let country of countries" [value]="country.value">
+      {{ country.viewValue }}
+    </mat-option>
+  </mat-select>
+   <mat-error *ngIf="countryControl.invalid">Please choose a Country</mat-error> 
+</mat-form-field>
+
+
+<mat-form-field>
+<mat-label>Category</mat-label>
+  <mat-select [(value)]="categoryCode" required [formControl]="categoryControl">
+  <mat-option *ngFor="let category of categories" [value]="category.value" >
+    {{ category.viewValue }}
+  </mat-option>
+</mat-select>
+ <mat-error *ngIf="categoryControl.invalid">Please choose a Category</mat-error> 
+ 
+</mat-form-field>
+<p> </p>
+<mat-action-row>
+    <button mat-button color="primary" (click)="sublitClicked()">Submit</button>
+  </mat-action-row>
+
+</mat-expansion-panel>
+  <!-- 
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <select matNativeControl required [(ngModel)]="countryCode" #cntry="ngModel">
+      <option *ngFor="let country of countries" [value]="country.value">
+        {{ country.viewValue }}
+      </option>
+    </select>
+  </mat-form-field>
+  <p>You selected: {{countryCode}}</p> -->
+  <br/>
+  <br/>
+  
+  <div *ngIf="formSubmitted">
+    <mat-list role="list" *ngFor= "let article of articles">
+     <mat-list-item role="listitem"> 
+    <mat-card style="max-width: 800px;">
+     <mat-card-header>
+       <mat-card-title>
+         <a  id="title" [href]="article.url" target="_blank">{{article.title}}</a>
+       </mat-card-title>
+     <br/>
+       <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
+     </mat-card-header>
+     <a mat-button [href]="article.url" target="_blank">
+      <img id="imgSrc" mat-card-image [src]="article.urlToImage" ></a>
+     <mat-card-content>
+        {{article.description}}
+     </mat-card-content>
+     <mat-card-content>
+        {{article.content}}
+     </mat-card-content>
+     <mat-card-actions>
+       <button mat-button>LIKE</button>
+       <button mat-button>SHARE</button>
+     </mat-card-actions>
+   </mat-card>
+   <br/>
+   </mat-list-item>
+   </mat-list>
+   </div>
+   
+   <!-- 
+   <div class="loader" *ngIf="!(articles.length > 0)">
+       <mat-spinner></mat-spinner>
+     </div>
+   <div class="container" fxLayout="wrap row" fxLayout.xs="column" fxLayoutGap="1%" fxLayoutAlign="center">
+     <div *ngFor="let post of articles" fxFlex="20%">
+       <mat-card class=singleNews>
+         <img mat-card-image src="{{post.urlToImage}}" onError="this.src='/assets/blank.png';">
+         <div class="cardbody">
+           <mat-card-title>{{post.title}}</mat-card-title>
+           <mat-card-content>
+             <p>{{post.description}}</p>
+           </mat-card-content>
+         </div>
+         <mat-card-actions align="end">
+           <a href="{{post.url}}" target="_balnk" mat-raised-button color="accent">Read More</a>
+         </mat-card-actions>
+       </mat-card>
+     </div>
+   </div> -->
+  
+  
+  
+  
+  
+  <!-- 
+    Mat Expansion
+   <div class="example-action-buttons">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div> -->
+  <!-- #docregion multi -->
+  <!-- <mat-accordion class="example-headers-align" multi> -->
+  <!-- #enddocregion multi -->
+  <!-- <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> -->
+        <!-- NEWS READER APPLICATION -->
+      <!-- </mat-panel-title>
+      <mat-panel-description>
+        Click to change Country and Category of News -->
+        <!-- <mat-icon>account_circle</mat-icon> -->
+      <!-- </mat-panel-description>
+    </mat-expansion-panel-header> -->
+  
+    <!-- <mat-form-field>
+      <mat-label>Country</mat-label>
+      <input matInput>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <input matInput type="number" min="1">
+    </mat-form-field> -->
+  
+   <!--<mat-form-field>
+    <mat-label>Country</mat-label>
+      <mat-select [(value)]="countryCode" required>
+      <mat-option *ngFor="let country of countries" [value]="country.value">
+        {{ country.viewValue }}
+      </mat-option>
+    </mat-select>-->
+    <!-- <mat-error *ngIf="countryControl.hasError('required')">Please choose a Country</mat-error> -->
+  <!-- </mat-form-field>
+  <p>You selected: {{countryCode}}</p>
+  
+  <mat-form-field>
+  <mat-label>Category</mat-label>
+    <mat-select [(value)]="categoryCode" required>
+    <mat-option *ngFor="let category of categories" [value]="category.value">
+      {{ category.viewValue }}
+    </mat-option>
+  </mat-select> -->
+  <!-- <mat-error *ngIf="categoryControl.hasError('required')">Please choose a Category</mat-error> -->
+  <!-- </mat-form-field>
+  <p>You selected: {{categoryCode}}</p>
+  <mat-action-row>
+      <button mat-button color="primary" (click)="submitClicked()">Submit</button>
+    </mat-action-row> -->
+  
+  <!-- <mat-form-field>
+   <button  mat-button (onClick)="submitClicked()">Submit</button>
+  </mat-form-field> -->
+  
+  <!--</mat-expansion-panel> -->
