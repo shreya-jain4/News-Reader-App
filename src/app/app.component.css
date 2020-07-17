@@ -6,9 +6,14 @@ body{
 }
 .mat-card-image:first-child {
     margin-top: 25px;
+    /* text-align: center; */
     /* height: 50%;*/
     width: 100%;
 } 
+.mat-expansion-panel-header-description {
+    color: black;
+    font-weight: 900;
+  }
 mat-list-item{
     align-content:center;
 }
@@ -25,3 +30,43 @@ mat-card{
     margin-left: 50px;
     margin-right: 150px;
   } 
+  .mat-expansion-panel {
+    background: rgb(204, 221, 240);
+    /* position: static; */
+    /* overflow: inherit !important; */
+  }
+   .mat-form-field{
+    color: black;
+    font-weight: 500;
+  } 
+  .mat-error{
+    color: rgb(250, 0, 0);
+    font-weight:200;  
+  }
+  .mat-select{
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+  }
+
+  /* .mat-panel-description{
+      font-size: x-large;
+  } */
+
+/*   
+
+.mat-expansion-panel-body {
+    overflow: hidden; 
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+} */
+
+.expansion-panel{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    overflow: inherit !important;
+}

@@ -62,14 +62,18 @@
   
 </mat-form-field>
 </div> -->
-
-<mat-expansion-panel>
+<div id="expansion-panel">
+<mat-accordion class="example-headers-align" multi>
+<mat-expansion-panel [expanded]="formSubmitted" (opened)="panelOpened()" (closed)="panelClosed()" #expansionPanel>
   <mat-expansion-panel-header>
     <mat-panel-title>
       <!-- NEWS READER APPLICATION -->
     </mat-panel-title>
-    <mat-panel-description>
+    <mat-panel-description *ngIf="!formSubmitted">
       Click to change Country and Category of News
+    </mat-panel-description>
+    <mat-panel-description *ngIf="formSubmitted">
+      Add Country and Category of News
     </mat-panel-description>
   </mat-expansion-panel-header>
 
@@ -96,10 +100,13 @@
 </mat-form-field>
 <p> </p>
 <mat-action-row>
-    <button mat-button color="primary" (click)="sublitClicked()">Submit</button>
+  <button mat-raised-button color="primary" (click)="sublitClicked()">Submit</button>
+  <button mat-raised-button (click)="accordion.closeAll()">Close</button>
   </mat-action-row>
 
 </mat-expansion-panel>
+</mat-accordion>
+</div>
   <!-- 
   <mat-form-field>
     <mat-label>Country</mat-label>
@@ -111,9 +118,8 @@
   </mat-form-field>
   <p>You selected: {{countryCode}}</p> -->
   <br/>
-  <br/>
   
-  <div *ngIf="formSubmitted">
+  <div>
     <mat-list role="list" *ngFor= "let article of articles">
      <mat-list-item role="listitem"> 
     <mat-card style="max-width: 800px;">
@@ -133,8 +139,8 @@
         {{article.content}}
      </mat-card-content>
      <mat-card-actions>
-       <button mat-button>LIKE</button>
-       <button mat-button>SHARE</button>
+       <button mat-raised-button color="primary"><mat-icon>thumb_up</mat-icon>  LIKE</button>
+       <button mat-raised-button color="primary"><mat-icon>share</mat-icon>  SHARE</button>
      </mat-card-actions>
    </mat-card>
    <br/>
@@ -227,3 +233,7 @@
   </mat-form-field> -->
   
   <!--</mat-expansion-panel> -->
+  <!-- <mat-paginator [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator> -->

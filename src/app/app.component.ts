@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { NewsServiceService } from './news-service.service';
 import { NewsData } from './news-data';
 import { Article } from './article';
@@ -14,6 +14,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
 // import {MatListModule} from '@angular/material/list';
+import {MatAccordion} from '@angular/material/expansion';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 export interface Country {
   value: string;
@@ -30,6 +32,7 @@ export interface Category {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild(MatAccordion) accordion: MatAccordion;
   articles: any;
   article: any;
   // countries: Array<string>=["India","Germany","USA","Australia"];
@@ -100,6 +103,7 @@ sublitClicked(){
     this.countryControl.markAsTouched();
     }
     else if(this.categoryCode!=undefined && this.countryCode!=undefined){
+      this.formSubmitted=false;
   this.newsService.getNews(this.countryCode, this.categoryCode).subscribe(response=>{
     //  let responseJson=JSON.stringify(response);
     //  var responseData= JSON.parse(responseJson);
@@ -112,11 +116,31 @@ sublitClicked(){
     );
 }
 }
+panelClosed(){
+  this.formSubmitted=false;
+}
+panelOpened(){
+  this.formSubmitted=true;
+}
 // this.newsService.getNewsHeadlines().subscribe(response=>
 //   this.news=response as Article[]
 //   );
 //   console.log(this.news);
   //console.log(this.news.length);
+//   expandPanel(matExpansionPanel, event): void {
+//     event.stopPropagation(); // Preventing event bubbling
+
+//     if (!this._isExpansionIndicator(event.target)) {
+//       matExpansionPanel.close(); // Here's the magic
+//     }
+//   }
+
+// private _isExpansionIndicator(target: EventTarget): boolean {
+// const expansionIndicatorClass = 'mat-expansion-indicator';
+
+// return (target['classList'] && target['classList'].contains(expansionIndicatorClass) );
+// }
+
 }
 
 

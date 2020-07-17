@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatPaginatorModule} from '@angular/material/paginator';
 // import {MatListModule} from '@angular/material/list';
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule
    // MatListModule
   ],
   exports:[
