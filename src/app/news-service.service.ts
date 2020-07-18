@@ -34,4 +34,9 @@ export class NewsServiceService {
     //return this.http.get('http://localhost:8080/getNews?country='+countryCode+'&category='+categoryCode).pipe(map((res:Response)=>res));   
     return this.http.get('https://newsreaderapi.herokuapp.com/getNews?country='+countryCode+'&category='+categoryCode).pipe(map((res:Response)=>res));   
   }
+  // getNewsFromApi(){
+  //   //return this.http.get('http://localhost:8080/getNews?country='+countryCode+'&category='+categoryCode).pipe(map((res:Response)=>res));   
+  //  // return this.http.get('https://newsreaderapi.herokuapp.com/getNews?country='+countryCode+'&category='+categoryCode).pipe(map((res:Response)=>res));   
+  //  return this.http.get('https://newsapi.org/v2/top-headlines?apiKey=c4cbc1e47ae34e4da48577668284714b&country=us&category=health').pipe(map((res:Response)=>res));   
+  // }
 }

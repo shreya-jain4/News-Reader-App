@@ -16,6 +16,8 @@ import {FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
 // import {MatListModule} from '@angular/material/list';
 import {MatAccordion} from '@angular/material/expansion';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 export interface Country {
   value: string;
@@ -42,6 +44,7 @@ export class AppComponent {
    categoryCode: string;
    countryCode: string;
   formSubmitted:boolean=true;
+  loading:boolean=false;
   //news:Article[] = [];
 
   countryControl = new FormControl('', [Validators.required]);
@@ -83,7 +86,12 @@ export class AppComponent {
 // }
 
 ngOnInit(){
-    
+
+  // this.newsService.getNewsFromApi().subscribe(response=>{
+  //   //  let responseJson=JSON.stringify(response);
+  //   //  var responseData= JSON.parse(responseJson);
+  //   console.log(response);
+  // });
     // this.newsService.getNews().subscribe(response=>{
     //   //  let responseJson=JSON.stringify(response);
     //   //  var responseData= JSON.parse(responseJson);
@@ -104,7 +112,9 @@ sublitClicked(){
     }
     else if(this.categoryCode!=undefined && this.countryCode!=undefined){
       this.formSubmitted=false;
+      this.loading=true;
   this.newsService.getNews(this.countryCode, this.categoryCode).subscribe(response=>{
+     this.loading=false;
     //  let responseJson=JSON.stringify(response);
     //  var responseData= JSON.parse(responseJson);
     console.log(response) 

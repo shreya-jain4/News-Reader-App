@@ -41,7 +41,7 @@ mat-card{
   } 
   .mat-error{
     color: rgb(250, 0, 0);
-    font-weight:200;  
+    font-weight:200font;  
   }
   .mat-select{
     color: rgb(0, 0, 0);
@@ -69,4 +69,8 @@ mat-card{
     top: 0;
     z-index: 1000;
     overflow: inherit !important;
+}
+
+.spinner{
+  align-content:center;
 }
