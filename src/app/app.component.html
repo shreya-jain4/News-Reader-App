@@ -153,8 +153,9 @@
    </div> -->
    
    <div  *ngIf="loading">
-      <mat-spinner id="spinner" style="position:relative; top: 250px; left: 580px;"></mat-spinner>
-      <div style="position:relative; top: 190px; left: 600px;">Loading...</div>
+      <mat-progress-bar mode="indeterminate" style="top: -20px"></mat-progress-bar>
+      <!-- <mat-spinner id="spinner" style="position:relative; top: 240px; left: 41%;"></mat-spinner>
+      <div style="position:relative; top: 180px; left: 43.6%;">Loading..</div> -->
 </div>
    <!-- 
    <div class="loader" *ngIf="!(articles.length > 0)">
